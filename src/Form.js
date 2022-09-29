@@ -10,7 +10,9 @@ class Form extends Component {
             email: ''
         };
 
-        this.state = this.initialState;
+        this.state = {
+            num: 0
+        };
     }
 
     handleChange = event => {
@@ -29,7 +31,7 @@ class Form extends Component {
     }
 
     render() {
-        const { firstName, lastName, email } = this.state; 
+        const {firstName, lastName, email } = this.state; 
 
         return (
             <form onSubmit={this.onFormSubmit}>
@@ -54,7 +56,7 @@ class Form extends Component {
                     id="email"
                     value={email} 
                     onChange={this.handleChange} />
-                <button type="submit">
+                <button type="submit" onClick={() => this.setState({ num: this.state.num + 1 })}>
                     Add User
                 </button>
             </form>
